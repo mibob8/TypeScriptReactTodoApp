@@ -4,6 +4,7 @@ import { Todo } from './types/types';
 import { TodoList } from './components/TodoList';
 import { useState } from 'react'; 
 import { v4 as uuidv4 } from 'uuid';
+import { Button } from 'react-bootstrap';
 
 function App() {
 
@@ -24,12 +25,15 @@ function App() {
   }
 
 
-  return (<div>
+  return (<div className="container">
  <TodoList todos={todos}></TodoList>
- <form onSubmit={ addTodo } >
- <input type="text" onChange={onTextChange} value={todoText}></input>
- <button type="submit">Add Todo</button>
+ <div>
+ <form onSubmit={ addTodo } > 
+ <input className='mr-2 align-self-start' type="text" onChange={onTextChange} value={todoText}></input>
+ <button className='btn btn-success' type="submit">Add Todo</button>
  </form> 
+ </div>
+ 
   </div> 
   );
 }

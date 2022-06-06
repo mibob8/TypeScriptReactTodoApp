@@ -14,12 +14,14 @@ export const TodoItem: React.FC<Props> = ({todo}) => {
       setIsDone(todo.IsDone); 
   }
  
-  return ( 
-  <li style={{textDecoration: todo.IsDone ? "line-through" : ""}}>
-      <input type="checkbox" onClick={onClickHandler}> 
+  return ( <div className='card p-4 mt-2'>
+<li  style={{textDecoration: todo.IsDone ? "line-through" : ""}}>
+      <input className='mr-2 text-light' type="checkbox" onClick={onClickHandler}> 
       </input> 
       {todo.Text}  
       </li>
+  </div>
+  
   )
 }
  

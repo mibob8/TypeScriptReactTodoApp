@@ -7,18 +7,18 @@ type Props = {
 
 export const TodoItem: React.FC<Props> = ({todo}) => {
  
-  const [isDone, setIsDone] = useState(todo.IsDone);
+  const [isDone, setIsDone] = useState(todo.status);
 
   const onClickHandler = () => {
-        todo.IsDone = !isDone;
-      setIsDone(todo.IsDone); 
+       // todo.sta = !isDone;
+      setIsDone(todo.status); 
   }
  
   return ( <div className='card p-4 mt-2'>
-<li  style={{textDecoration: todo.IsDone ? "line-through" : ""}}>
+<li  style={{textDecoration: todo.status === 'done' ? "line-through" : ""}}>
       <input className='mr-2 text-light' type="checkbox" onClick={onClickHandler}> 
       </input> 
-      {todo.Text}  
+      {todo.title}  
       </li>
   </div>
   

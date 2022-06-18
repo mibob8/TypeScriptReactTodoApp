@@ -1,7 +1,7 @@
 
 
 export type Todo = {
-    Text: string;
-    IsDone: boolean; 
-    key: string ;
+    id?: string;
+    title: string;
+    status: 'todo' | 'done' | 'in progress';
 };

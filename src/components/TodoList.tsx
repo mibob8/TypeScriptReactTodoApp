@@ -11,7 +11,7 @@ export const TodoList: React.FC<Props> = ({ todos }) => {
     return ( 
     <ol style ={{listStyle:'none'}}>
         {todos.map((todo: Todo) => 
-        (<TodoItem key={todo.key} todo={todo}></TodoItem>))}
+        (<TodoItem key={todo.id} todo={todo}></TodoItem>))}
     </ol>
         );
   };    

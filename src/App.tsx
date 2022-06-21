@@ -38,18 +38,26 @@ function App() {
      api.get<Array<Todo>>("todos")
     .then((response) => {
        setTodos(response.data);
-    });
-    
+    }); 
+  }
+
+  const remove = (id: string) => {
+    api.delete(`todos/${id}`);
+    setTodos(
+         todos.filter((todo) => {
+            return todo.id !== id;
+         })
+      );
   }
 
   const onTextChange = (e: React.FormEvent<HTMLInputElement>): void => {
     setTodoText(e.currentTarget.value)
-  }
+  } 
 
 
   return (
   <div className="container ">
- <TodoList todos={todos}></TodoList>
+ <TodoList todos={todos} remove={remove}></TodoList>
  <div>
  <form className='row' onSubmit={ addTodo } >  
  <input className='mr-2 align-self-start' type="text" onChange={onTextChange} value={todoText}></input>

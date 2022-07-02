@@ -3,9 +3,8 @@ import './App.css';
 import { Todo } from './types/types';
 import { TodoList } from './components/TodoList';
 import { useEffect, useState } from 'react'; 
-import { v4 as uuidv4 } from 'uuid';
-import { Button } from 'react-bootstrap';
-import axios from 'axios' 
+import { v4 as uuidv4 } from 'uuid'; 
+import axios from 'axios'
 
 const api = axios.create({
   baseURL: 'http://localhost:3000/'
@@ -56,13 +55,15 @@ function App() {
 
 
   return (
-  <div className="container ">
+  <div className="container">
  <TodoList todos={todos} remove={remove}></TodoList>
  <div>
- <form className='row' onSubmit={ addTodo } >  
- <input className='mr-2 align-self-start' type="text" onChange={onTextChange} value={todoText}></input>
+  <div className='row d-flex justify-content-center'>
+  <form className='col-md-6' onSubmit={ addTodo } >  
+ <input className='mr-2' type="text" onChange={onTextChange} value={todoText}></input>
  <button className='btn btn-success' type="submit">Add Todo</button> 
  </form> 
+  </div> 
  </div> 
   </div> 
   );
